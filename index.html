@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Excel no Automático</title>
+<meta name="description" content="Guia em PDF com 50 problemas reais do Excel, cada um com o pedido pronto para colar na IA e o jeito de conferir o resultado. R$ 47, acesso imediato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: uma coluna de leitura (máx. 1080px) que alterna faixas escuras; a barra de fórmula do Excel é o elemento-assinatura. Visual único escuro, como a capa do guia. */
+:root{
+  --bg:#0A211A; --band:#0E2B22; --card:#12352A; --ink:#ECF5F0; --muted:#A7C2B5;
+  --mint:#19E68D; --mint-ink:#062015; --line:rgba(25,230,141,.22); --cell:#F4F6F0; --cell-ink:#1A2B23;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+img{display:block;max-width:100%;height:auto}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:64px}
+.band{background:var(--band);border-block:1px solid var(--line)}
+h1,h2,h3{font-family:var(--display);font-stretch:80%;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,7.4vw,76px);font-weight:900;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--mint)}
+h2{font-size:clamp(30px,4.6vw,46px);font-weight:800;text-transform:uppercase}
+h3{font-size:22px;font-weight:700;font-stretch:90%}
+p{margin:0}
+.lead{font-size:clamp(18px,2.2vw,21px);color:var(--muted);max-width:56ch}
+.eyebrow{font:600 13px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.stack{display:grid;gap:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--mint);color:var(--mint-ink);font:800 19px/1 var(--display);font-stretch:90%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;padding:20px 30px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(25,230,141,.25)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.fine{font-size:14px;color:var(--muted)}
+/* hero */
+.hero{padding-block:56px 64px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.hero-grid>*{min-width:0}
+.cover{width:100%;max-width:340px;justify-self:center;border:1px solid var(--line);box-shadow:16px 18px 0 rgba(0,0,0,.35);transform:rotate(2deg)}
+.fx{display:flex;align-items:stretch;border:1px solid var(--line);background:var(--cell);color:var(--cell-ink);border-radius:6px;overflow:hidden;max-width:100%}
+.fx b{font:italic 600 17px/1 Georgia,serif;display:flex;align-items:center;padding:0 14px;border-right:1px solid #cfd6cf;color:#0e5a3a}
+.fx code{font:500 clamp(13px,2.2vw,16px)/1.4 var(--mono);padding:12px 14px;overflow-x:auto;white-space:nowrap;min-width:0}
+.ask{font-size:15px;color:var(--muted)}
+.ask strong{color:var(--ink);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.chips span::before{content:"✓ ";color:var(--mint)}
+/* objeção */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.split>*{min-width:0}
+.vs{display:grid;gap:14px}
+.vs div{border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--card)}
+.vs small{display:block;font:600 12px var(--body);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;color:var(--muted)}
+.vs .good small{color:var(--mint)}
+.vs p{font:500 15px/1.5 var(--mono)}
+/* missão */
+.mission{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.mission>*{min-width:0}
+.mission img{width:100%;border-radius:10px;border:1px solid var(--line)}
+.parts{display:grid;gap:16px;counter-reset:p}
+.parts li{list-style:none;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.parts li::before{counter-increment:p;content:counter(p);font:800 22px/44px var(--display);text-align:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--mint);color:var(--mint)}
+.parts{padding:0;margin:0}
+.parts b{display:block;font-weight:600}
+.parts span{color:var(--muted);font-size:15px}
+/* temas */
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.theme{border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.theme .r{font:500 13px var(--mono);color:var(--mint)}
+.theme h3{margin:6px 0 8px}
+.theme p{font-size:15px;color:var(--muted)}
+details.all{margin-top:24px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+details.all summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none}
+details.all summary::-webkit-details-marker{display:none}
+details.all summary::after{content:" +";color:var(--mint)}
+details.all[open] summary::after{content:" –"}
+.sheet{overflow-x:auto;padding:0 20px 20px}
+.sheet table{border-collapse:collapse;width:100%;min-width:520px;background:var(--cell);color:var(--cell-ink);font-size:14px}
+.sheet th,.sheet td{border:1px solid #d6dcd5;padding:6px 10px;text-align:left}
+.sheet th{background:#e7ebe4;font:600 12px var(--mono);color:#58665e}
+.sheet td:first-child{font:500 12px var(--mono);color:#58665e;background:#eef1ec;width:44px;text-align:center;font-variant-numeric:tabular-nums}
+/* mapa + 7 dias */
+.mapa{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mapa div{border-top:3px solid var(--mint);padding-top:14px}
+.mapa b{font:900 44px/1 var(--display);color:var(--mint)}
+.mapa h3{margin:6px 0}
+.mapa p{font-size:15px;color:var(--muted)}
+.days{display:grid;gap:10px;padding:0;margin:0}
+.days li{list-style:none;display:grid;grid-template-columns:72px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.days li span{font:600 13px var(--mono);color:var(--mint);letter-spacing:.06em}
+/* para quem */
+.who{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.who>div{border:1px solid var(--line);border-radius:10px;padding:22px}
+.who ul{margin:12px 0 0;padding-left:20px;color:var(--muted)}
+.who li{margin-bottom:6px}
+.who .no h3{color:var(--muted)}
+/* oferta */
+.offer{border:2px solid var(--mint);border-radius:16px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:var(--card)}
+.offer>*{min-width:0}
+.price{font:900 clamp(56px,9vw,84px)/1 var(--display);font-stretch:85%}
+.price small{font-size:.4em;vertical-align:.9em;margin-right:4px}
+.offer ul{margin:14px 0 0;padding-left:20px;color:var(--muted)}
+.offer-cta{display:grid;gap:12px;justify-items:center;text-align:center}
+.guar{display:flex;gap:14px;align-items:flex-start;margin-top:22px;font-size:15px;color:var(--muted)}
+.guar b{color:var(--ink)}
+/* faq */
+.faq{display:grid;gap:10px}
+.faq details{border:1px solid var(--line);border-radius:10px;padding:0 20px}
+.faq summary{cursor:pointer;padding:16px 0;font-weight:600}
+.faq details p{padding-bottom:16px;color:var(--muted)}
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.sticky{display:none}
+@media (max-width:820px){
+  .hero-grid,.split,.mission,.who,.offer{grid-template-columns:1fr}
+  .hero{padding-block:32px 48px}
+  .hero-grid{gap:32px}
+  .cover{max-width:230px;transform:rotate(1.5deg);box-shadow:10px 12px 0 rgba(0,0,0,.35)}
+  .mission img{order:2}
+  .fx code{white-space:normal;word-break:break-all;font-size:13px}
+  .btn{width:100%}
+  .mapa{grid-template-columns:1fr 1fr}
+  section{padding-block:48px}
+  .offer{padding:24px}
+  .sticky{display:block;transform:translateY(110%);transition:transform .25s ease;position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--bg);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .sticky .btn{width:100%;padding:16px}
+  footer{padding-bottom:110px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.sticky.on{transform:none}
+</style>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1677115983784680');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Excel no Automatico',value:47,currency:'BRL'});</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1677115983784680&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="stack">
+      <span class="eyebrow">Guia em PDF · 55 páginas</span>
+      <h1>Travou no Excel? <em>Abra na página certa.</em></h1>
+      <p class="lead">50 problemas reais do trabalho, cada um com o pedido pronto para colar na IA e o jeito de conferir se o resultado está certo.</p>
+      <div class="stack" style="gap:8px">
+        <p class="ask">Você pede: <strong>"Traga o preço da aba Produtos usando o código da coluna B."</strong></p>
+        <div class="fx" role="img" aria-label="Barra de fórmula do Excel"><b>fx</b><code>=PROCX(B2;Produtos!A:A;Produtos!C:C;"Não encontrado")</code></div>
+      </div>
+      <div class="stack" style="gap:12px;justify-items:start">
+        <a class="btn js-buy" href="https://pay.cakto.com.br/hvgvz8m_1222151">Quero o guia por R$ 47</a>
+        <div class="chips"><span>Pagamento único</span><span>Acesso imediato</span><span>Garantia de 7 dias</span></div>
+      </div>
+    </div>
+    <img class="cover" src="img/capa.jpg" width="910" height="1287" alt="Capa do guia Excel no Automático: 50 problemas reais, 50 soluções práticas com IA">
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="stack">
+      <span class="eyebrow">A pergunta que todo mundo faz</span>
+      <h2>Se a IA é grátis, por que pagar R$ 47?</h2>
+      <p class="lead">Porque a IA responde exatamente o que você pergunta. Pergunta vaga gera fórmula errada, que você só descobre depois. O guia entrega a pergunta certa para 50 situações, já dizendo o que informar e como testar a resposta.</p>
+    </div>
+    <div class="vs">
+      <div><small>Pedido comum</small><p>"Faz uma fórmula pra buscar o preço."</p></div>
+      <div class="good"><small>Pedido do guia</small><p>"Uso Excel em português. Minha aba Vendas tem o código na coluna B. Traga o preço da aba Produtos e mostre "Não encontrado" se não existir. Explique onde aplicar e como testar."</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap mission">
+    <img src="img/missao.jpg" width="924" height="1035" alt="Página da Missão 01 do guia: Buscar preços entre abas, com o problema, a solução, o prompt pronto e a conferência">
+    <div class="stack">
+      <span class="eyebrow">Veja uma missão por dentro</span>
+      <h2>Cada problema vem em 4 partes</h2>
+      <ol class="parts">
+        <li><div><b>O problema</b><span>Um exemplo de planilha mostrando o que está acontecendo.</span></div></li>
+        <li><div><b>Entenda a solução</b><span>O que você precisa saber dos seus dados antes de pedir.</span></div></li>
+        <li><div><b>Copie, adapte e cole na IA</b><span>O pedido pronto, com os trechos entre colchetes para você trocar pelos seus.</span></div></li>
+        <li><div><b>Confira antes de usar</b><span>Um teste simples para saber se o resultado está certo antes de aplicar na base inteira.</span></div></li>
+      </ol>
+      <p class="fine">Você não precisa ler do começo ao fim: procure o problema, abra a página e resolva.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack">
+      <span class="eyebrow">O que tem dentro</span>
+      <h2>50 missões em 7 temas</h2>
+    </div>
+    <div class="themes">
+      <div class="theme"><span class="r">Missões 01–10</span><h3>Fórmulas e erros</h3><p>Buscar entre abas, somar com condições, prazos e vencimentos, corrigir #N/D.</p></div>
+      <div class="theme"><span class="r">Missões 11–16</span><h3>Limpeza e organização</h3><p>Converter texto em data, moeda em número, achar duplicados.</p></div>
+      <div class="theme"><span class="r">Missões 17–24</span><h3>Análises e relatórios</h3><p>Comparar períodos, escrever resumo executivo, transformar análise em e-mail.</p></div>
+      <div class="theme"><span class="r">Missões 25–30</span><h3>Gráficos e dashboards</h3><p>Escolher o gráfico, tabela dinâmica, filtros interativos.</p></div>
+      <div class="theme"><span class="r">Missões 31–38</span><h3>Excel para negócios</h3><p>Controle de caixa, estoque, preço com margem, comissões.</p></div>
+      <div class="theme"><span class="r">Missões 39–44</span><h3>Automação</h3><p>Macros para formatar, separar e unificar abas, exportar para PDF.</p></div>
+      <div class="theme"><span class="r">Missões 45–50</span><h3>Carreira e produtividade</h3><p>Atalhos, entrevista de Excel, revisar planilha antes de enviar.</p></div>
+    </div>
+    <details class="all">
+      <summary>Ver a lista completa das 50 missões</summary>
+      <div class="sheet">
+        <table>
+          <thead><tr><th>#</th><th>Missão</th><th>Tema</th></tr></thead>
+          <tbody id="missions"></tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack" style="gap:32px">
+    <div class="stack">
+      <span class="eyebrow">Método M.A.P.A.</span>
+      <h2>O segredo não é decorar. É saber pedir.</h2>
+      <p class="lead">Quatro perguntas que fazem a IA acertar de primeira, usadas em todas as missões.</p>
+    </div>
+    <div class="mapa">
+      <div><b>M</b><h3>Mapa</h3><p>Quais abas e colunas existem e onde começam os dados.</p></div>
+      <div><b>A</b><h3>Ação</h3><p>O que precisa acontecer, em português simples.</p></div>
+      <div><b>P</b><h3>Ponto de entrega</h3><p>Em qual célula ou aba o resultado deve aparecer.</p></div>
+      <div><b>A</b><h3>Ajustes</h3><p>Versão e idioma do Excel e o que fazer se faltar um dado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="stack">
+      <span class="eyebrow">Desafio de 7 dias</span>
+      <h2>Uma semana para pegar o jeito</h2>
+      <p class="lead">No fim do guia tem um roteiro curto para praticar com as suas próprias planilhas.</p>
+    </div>
+    <ol class="days">
+      <li><span>DIA 1</span>Peça sua primeira fórmula usando M.A.P.A.</li>
+      <li><span>DIA 2</span>Resolva um problema de soma ou contagem.</li>
+      <li><span>DIA 3</span>Corrija uma base bagunçada.</li>
+      <li><span>DIA 4</span>Crie uma tabela dinâmica e um gráfico.</li>
+      <li><span>DIA 5</span>Gere e revise uma análise escrita.</li>
+      <li><span>DIA 6</span>Teste uma automação em uma cópia do arquivo.</li>
+      <li><span>DIA 7</span>Monte uma página com seus principais indicadores.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap who">
+    <div><h3>É para você se</h3><ul><li>Usa Excel no trabalho e trava em fórmula, relatório ou planilha bagunçada.</li><li>Sabe o básico e não quer fazer um curso longo.</li><li>Já usa ou topa usar ChatGPT, Gemini ou Copilot, inclusive nas versões gratuitas.</li></ul></div>
+    <div class="no"><h3>Não é para você se</h3><ul><li>Quer um curso em vídeo do zero.</li><li>Espera que a IA mexa sozinha na sua planilha. O guia ensina o que pedir; quem aplica no Excel é você.</li><li>Já domina fórmulas avançadas e macros.</li></ul></div>
+  </div>
+</section>
+
+<section class="band" id="comprar">
+  <div class="wrap">
+    <div class="offer">
+      <div>
+        <span class="eyebrow">Excel no Automático</span>
+        <div class="price"><small>R$</small>47</div>
+        <ul>
+          <li>Guia em PDF de 55 páginas, 50 missões em 7 temas</li>
+          <li>Pedido pronto para cada problema, com a conferência</li>
+          <li>Método M.A.P.A. e desafio de 7 dias</li>
+          <li>Acesso imediato na área de membros após o pagamento aprovado</li>
+        </ul>
+      </div>
+      <div class="offer-cta">
+        <a class="btn js-buy" href="https://pay.cakto.com.br/hvgvz8m_1222151">Quero o guia</a>
+        <span class="fine">Pix, cartão ou carteiras digitais.<br>Pagamento processado pela Cakto.</span>
+      </div>
+    </div>
+    <div class="guar"><span aria-hidden="true">🛡️</span><p><b>Garantia de 7 dias.</b> Se não for o que você esperava, peça o reembolso de 100% em até 7 dias após a compra, direto pela Cakto.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack" style="gap:24px">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq">
+      <details><summary>Como recebo o guia?</summary><p>Assim que o pagamento é aprovado, você recebe por e-mail o acesso à área de membros, onde está o PDF para baixar. No Pix, a aprovação costuma sair em poucos minutos.</p></details>
+      <details><summary>Preciso pagar alguma IA?</summary><p>Não. Os pedidos funcionam com a IA que você preferir, inclusive as versões gratuitas do ChatGPT, Gemini ou Copilot. Recursos e limites variam por serviço e plano.</p></details>
+      <details><summary>Funciona na minha versão do Excel?</summary><p>Cada pedido tem um espaço para você informar a sua versão e o idioma do Excel, para a IA ajustar a fórmula. Funções novas, como PROCX, não existem em versões antigas, e o pedido já prevê isso.</p></details>
+      <details><summary>A IA vai mexer na minha planilha?</summary><p>Não. A IA te devolve a fórmula ou o passo a passo, e você aplica no Excel. O guia recomenda testar sempre em uma cópia do arquivo.</p></details>
+      <details><summary>Posso pedir reembolso?</summary><p>Sim. Você tem 7 dias após a compra para pedir o reembolso integral pela Cakto.</p></details>
+      <details><summary>Tem suporte?</summary><p>Sim. O e-mail de suporte aparece no comprovante de compra enviado pela Cakto.</p></details>
+    </div>
+    <div><a class="btn js-buy" href="https://pay.cakto.com.br/hvgvz8m_1222151">Quero o guia por R$ 47</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Excel no Automático · Guia em PDF. Não inclui IA nem programa. Microsoft Excel é marca da Microsoft Corporation; este guia não tem vínculo com a Microsoft.</div>
+</footer>
+
+<div class="sticky"><a class="btn js-buy" href="https://pay.cakto.com.br/hvgvz8m_1222151">Quero o guia por R$ 47</a></div>
+
+<script>
+(function(){
+  var list="01|Buscar preços entre abas|Fórmulas e erros;02|Somar valores com condições|Fórmulas e erros;03|Contar pedidos por critérios|Fórmulas e erros;04|Classificar resultados por faixas|Fórmulas e erros;05|Controlar prazos e vencimentos|Fórmulas e erros;06|Calcular idade ou tempo de casa|Fórmulas e erros;07|Separar nome e sobrenome|Fórmulas e erros;08|Criar lista sem duplicatas|Fórmulas e erros;09|Filtrar linhas automaticamente|Fórmulas e erros;10|Corrigir erros de fórmula|Fórmulas e erros;11|Diagnosticar uma base bagunçada|Limpeza e organização;12|Converter texto em data|Limpeza e organização;13|Converter moeda em número|Limpeza e organização;14|Padronizar nomes e cidades|Limpeza e organização;15|Localizar registros duplicados|Limpeza e organização;16|Separar dados misturados|Limpeza e organização;17|Interpretar um resumo de vendas|Análises e relatórios;18|Comparar dois períodos|Análises e relatórios;19|Encontrar padrões e anomalias|Análises e relatórios;20|Escrever um resumo executivo|Análises e relatórios;21|Transformar análise em e-mail|Análises e relatórios;22|Preparar três slides objetivos|Análises e relatórios;23|Antecipar perguntas do gestor|Análises e relatórios;24|Escolher indicadores mensais|Análises e relatórios;25|Escolher o gráfico certo|Gráficos e dashboards;26|Montar tabela dinâmica|Gráficos e dashboards;27|Agrupar datas por mês e ano|Gráficos e dashboards;28|Planejar um dashboard|Gráficos e dashboards;29|Adicionar filtros interativos|Gráficos e dashboards;30|Destacar resultados abaixo da meta|Gráficos e dashboards;31|Montar controle de caixa|Excel para negócios;32|Criar alerta de estoque|Excel para negócios;33|Calcular preço com margem|Excel para negócios;34|Controlar contas e vencimentos|Excel para negócios;35|Calcular ponto de equilíbrio|Excel para negócios;36|Calcular comissões e bônus|Excel para negócios;37|Identificar clientes mais valiosos|Excel para negócios;38|Projetar fluxo de caixa|Excel para negócios;39|Criar macro para formatar|Automação;40|Separar base em abas|Automação;41|Unificar várias abas|Automação;42|Exportar abas para PDF|Automação;43|Remover linhas com confirmação|Automação;44|Automatizar Excel na web|Automação;45|Aprender atalhos úteis|Carreira e produtividade;46|Montar plano de estudo|Carreira e produtividade;47|Treinar para entrevista de Excel|Carreira e produtividade;48|Praticar com exercício e gabarito|Carreira e produtividade;49|Revisar planilha antes de enviar|Carreira e produtividade;50|Entender uma fórmula complexa|Carreira e produtividade";
+  var tb=document.getElementById("missions");
+  list.split(";").forEach(function(r){var c=r.split("|");var tr=document.createElement("tr");c.forEach(function(v){var td=document.createElement("td");td.textContent=v;tr.appendChild(td)});tb.appendChild(tr)});
+  // repassa UTMs da página para o checkout
+  var q=window.location.search;
+  if(q&&q.length>1){document.querySelectorAll(".js-buy").forEach(function(a){a.href=a.href+(a.href.indexOf("?")>-1?"&":"?")+q.slice(1)})}
+})();
+</script>
+<script>(function(){var st=document.querySelector(".sticky"),h=document.querySelector(".hero .btn");if(!st||!h||!("IntersectionObserver" in window)){if(st)st.classList.add("on");return}new IntersectionObserver(function(e){st.classList.toggle("on",!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(h)})();</script>
+</body>
+</html>
